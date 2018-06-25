@@ -145,6 +145,8 @@ end
 
 
 
+
+
 # 'devise' Gem
 
 [Getting started](https://github.com/plataformatec/devise#getting-started)
@@ -158,9 +160,13 @@ gem 'devise'
 
 `$ bundle install`
 
+
+
 2. devise 설치
 
    `$ rails generate devise:install`
+
+   
 
 ```bash
 $ rails generate devise:install
@@ -198,17 +204,23 @@ Some setup you must do manually if you haven't yet:
 ===============================================================================
 ```
 
+
+
 3. user 모델 만들기
 
    `$ rails generate devise User`
 
    - `db/migrate/20180625_devise_create_users.rb`
-   - ``model/user.rb`
+   - `model/user.rb`
    - `config/routes.rb` : devicse_for :users
+
+
 
 4. migration
 
    `$ rake db:migrate`
+
+   
 
 5. routes 확인
 
@@ -233,6 +245,8 @@ Some setup you must do manually if you haven't yet:
 - 로그인 : get 'users/sign_in'
 - 로그아웃 : delete 'users/sign_out'
 
+
+
 6. helper method
 
    - `user_sign_in?`
@@ -246,6 +260,8 @@ Some setup you must do manually if you haven't yet:
    - `before_action :authenticate_user!`
 
      로그인되어있는 유저 검증(필터)
+
+   
 
 7. View 파일 수정하기
 
