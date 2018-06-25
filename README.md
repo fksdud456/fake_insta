@@ -265,4 +265,41 @@ Some setup you must do manually if you haven't yet:
 
 7. View 파일 수정하기
 
-   `$ rails generate devise:views users`
+   1. 첫번째 방법
+
+      `$ rails generate devise:views users`
+
+      View 파일 적용안됌
+
+   ```ruby
+   # config/initializers/devise.rb
+    
+   #config.scoped_views = false
+   config.scoped_views = true
+   ```
+
+   
+
+   2. 두 번째 방법
+
+      `$ rails generate devise:views`
+
+
+
+1. [custom column 추가하기](https://github.com/plataformatec/devise#strong-parameters)
+
+   1. migration 파일에 원하는 column추가
+
+   2. `app/views/devise/registrations/new.html.erb` input 추가
+
+   3. `app/controllers/application_controller.rb`
+
+      ```ruby
+        before_action :configure_permitted_parameters, if: :devise_controller?
+      
+        protected
+      
+        def configure_permitted_parameters
+          devise_parameter_sanitizer.permit(:sign_up, keys: [:name])
+        end
+      ```
