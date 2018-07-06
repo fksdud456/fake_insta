@@ -1,0 +1,26 @@
+<%= link_to '글쓰기', new_post_path, class: "btn btn-warning" %>
+<% @posts.each do |post| %>
+  <p>작성자 : <%= post.user.email %></p>
+  <p><%= post.id %>번째 글</p>
+  <p>제목 : <%= post.title %></p>
+  <p>내용 : <%= post.content %></p>
+  <%= link_to '글보기', post, class: "btn btn-primary" %>
+
+  <!-- Like.find_by(user_id: ,post_id: ) -->
+  <!-- # current_user.liked_posts.include? Post.find(params[:post_id]) -->
+  <% if post.liked_users.include?(current_user) %>
+    <%= link_to "posts/#{post.id}/dislike" do %>
+      <i class="fas fa-heart"></i>
+    <% end %>
+  <% else %>
+    <%= link_to "posts/#{post.id}/like" do %>
+      <i class="far fa-heart"></i>
+    <% end %>
+  <% end %>
+
+
+  <hr />
+<% end %>
+<div class="d-flex justify-content-center">
+  <%= paginate @posts %>
+</div>
