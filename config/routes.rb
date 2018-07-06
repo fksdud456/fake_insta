@@ -2,8 +2,8 @@ Rails.application.routes.draw do
   devise_for :users, controllers: { sessions: 'users/sessions' }
   root 'posts#index'
   resources :posts
-  get '/posts/:post_id/like' => 'likes#create'
-  get '/posts/:post_id/dislike' => 'likes#destroy'
+  put '/posts/:post_id/like' => 'likes#create'
+  delete '/posts/:post_id/like' => 'likes#destroy'
   post '/posts/:post_id/comments' => 'comments#create'
   delete '/comments/:comment_id' => 'comments#destroy', as: 'destroy_comment'
 

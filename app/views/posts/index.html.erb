@@ -9,15 +9,18 @@
   <!-- Like.find_by(user_id: ,post_id: ) -->
   <!-- # current_user.liked_posts.include? Post.find(params[:post_id]) -->
   <% if post.liked_users.include?(current_user) %>
-    <%= link_to "posts/#{post.id}/dislike" do %>
+    <%= link_to "posts/#{post.id}/like", data: {id: post.id}, remote: true, method: :delete do %>
       <i class="fas fa-heart"></i>
     <% end %>
   <% else %>
-    <%= link_to "posts/#{post.id}/like" do %>
+    <%= link_to "posts/#{post.id}/like", data: {id: post.id}, remote: true, method: :put do %>
       <i class="far fa-heart"></i>
     <% end %>
   <% end %>
 
+  <span>
+    <%= post.liked_users.count %>
+  </span>
 
   <hr />
 <% end %>
