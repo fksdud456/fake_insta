@@ -7,7 +7,7 @@ class LikesController < ApplicationController
                 post_id: @post_id)
     respond_to do |format|
       format.html {redirect_to :back}
-      format.js {}
+      format.js {}  # {} 명시하지 않는경우 create.js.erb 로 매칭됨
     end
   end
 

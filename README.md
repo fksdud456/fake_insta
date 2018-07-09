@@ -426,3 +426,18 @@ current_user.liked_posts.include? post
 # 4.
 post.liked_users.include? current_user
 ```
+
+
+
+### AJAX로 LIKE
+
+```javascript
+$('')
+```
+
+
+### migrate
+`rails g migration AddImgToPost img:string`
+`rake db:migrate`
+
+삭제할 때 : `rails d migration AddImgToPost`
