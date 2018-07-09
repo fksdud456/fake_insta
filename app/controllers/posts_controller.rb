@@ -5,7 +5,7 @@ class PostsController < ApplicationController
   def index
     @posts = Post.order(created_at: :desc).page(params[:page]).per(5)
     respond_to do |format|
-      format.html 
+      format.html
       format.json { render json: @posts }
     end
   end
@@ -61,6 +61,6 @@ class PostsController < ApplicationController
   end
 
   def post_params
-    params.require(:post).permit(:title, :content)
+    params.require(:post).permit(:title, :content, :img)
   end
 end

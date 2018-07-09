@@ -2,6 +2,9 @@
 <%= @post.id %>번째 글
 <%= @post.title %>
 <%= @post.content %>
+<%= image_tag @post.img %>
+<%= image_tag @post.img.thumb_fit.url %>
+<%= image_tag @post.img.thumb_fill.url %>
 <% if can? :edit, @post %>
   <%= link_to '수정하기', edit_post_path(@post) %>
 <% end %>

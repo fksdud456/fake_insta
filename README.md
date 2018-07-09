@@ -436,8 +436,70 @@ $('')
 ```
 
 
+
+# FILE UPLOAD
+
 ### migrate
+
 `rails g migration AddImgToPost img:string`
 `rake db:migrate`
 
 삭제할 때 : `rails d migration AddImgToPost`
+
+
+
+
+
+```ruby
+# Unpermitted parameter: img error
+
+# posts_controller.rb
+params.require(:post).permit(:title, :content, :img)
+```
+
+
+
+### 파일업로드를 도와주는 Gem 설치 
+
+[carrierwave](https://github.com/carrierwaveuploader/carrierwave)
+
+`gem 'carrierwave', '~> 1.0'`
+
+`bundle install`
+
+
+
+` rails g uploader img`
+
+
+
+### 이미지 작게 보게하는 편집용 Gem 설치
+
+[minimagick](https://github.com/minimagick/minimagick)
+
+`gem "mini_magick"`
+
+` sudo apt-get update`
+
+` sudo apt-get install -y imagemagick`
+
+
+
+### 환경변수 관리
+
+`gem 'figaro'`
+
+    $ bundle exec figaro install
+      ==> create  config/application.yml
+      ==> append  .gitignore
+      
+      환경변수와 관련된 변수들이 git 에 올라가지 않도록 관리해주는 파일
+```yaml
+# config/application.yml
+
+AWS_ACCESS_KEY_ID: 본인아이디
+AWS_SECRET_ACCESS_KEY: 본인키
+AWS_REGION: ap-northeast-2
+S3_BUCKET_NAME: 버킷이름
+```
+

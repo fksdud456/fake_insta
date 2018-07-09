@@ -5,10 +5,11 @@
   <%# f.submit %>
 <%# end %>
 
-<%= simple_form_for @post do |f| %>
+<%= simple_form_for @post, html: {multipart: true} do |f| %>
   <%= f.error_notification %>
   <%= f.input :title %>
   <%= f.input :content %>
-  Select a file :<input type="file" name="post[img]" />
+  <%= f.input :img %>
+  <!-- Select a file :<input type="file" name="post[img]" /> -->
   <%= f.button :submit, class: "btn-primary" %>
 <% end %>
