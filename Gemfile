@@ -4,7 +4,9 @@ gem 'aws-sdk'
 # 환경변수 관리
 gem 'figaro'
 # 회원관리
+gem 'devise'
 gem 'cancancan', '~> 2.0'
+gem 'omniauth-facebook'
 
 # 게시판관
 gem 'kaminari'
@@ -21,7 +23,7 @@ gem 'tinymce-rails-imageupload', '~> 4.0.0.beta'
 
 gem 'faker', :git => 'https://github.com/stympy/faker.git', :branch => 'master'
 gem 'pry-rails'
-gem 'devise'
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.10'
 # Use sqlite3 as the database for Active Record

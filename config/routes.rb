@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
   get 'tinymce_assets/create'
 
-  devise_for :users, controllers: { sessions: 'users/sessions' }
+  devise_for :users, controllers: {
+    sessions: 'users/sessions',
+    omniauth_callbacks: 'users/omniauth_callbacks'
+   }
   root 'posts#index'
   resources :posts
   put '/posts/:post_id/like' => 'likes#create'
