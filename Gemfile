@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+gem 'aws-sdk'
 # 환경변수 관리
 gem 'figaro'
 # 회원관리
@@ -12,6 +13,11 @@ gem 'simple_form'
 gem 'carrierwave', '~> 1.0'
 gem 'mini_magick'
 gem 'fog' # cloud service
+
+# 에디터
+gem 'tinymce-rails'
+gem 'tinymce-rails-langs'
+gem 'tinymce-rails-imageupload', '~> 4.0.0.beta'
 
 gem 'faker', :git => 'https://github.com/stympy/faker.git', :branch => 'master'
 gem 'pry-rails'

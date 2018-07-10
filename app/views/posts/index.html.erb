@@ -3,7 +3,7 @@
   <p>작성자 : <%= post.user.email %></p>
   <p><%= post.id %>번째 글</p>
   <p>제목 : <%= post.title %></p>
-  <p>내용 : <%= post.content %></p>
+  <p>내용 : <%= post.content.html_safe %></p>
   <%= link_to '글보기', post, class: "btn btn-primary" %>
 
   <!-- Like.find_by(user_id: ,post_id: ) -->

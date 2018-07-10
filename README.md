@@ -503,3 +503,66 @@ AWS_REGION: ap-northeast-2
 S3_BUCKET_NAME: 버킷이름
 ```
 
+
+
+
+
+# Editor
+
+[환경설정](https://github.com/spohlenz/tinymce-rails)
+
+`gem 'tinymce-rails'`
+
+1. create `config/tinymce.yml` file
+
+```yaml
+default:
+  plugins:
+    - image
+    - link
+
+alternate:
+  selector: textarea.table-editor
+  toolbar: styleselect | bold italic | undo redo | table
+  plugins:
+    - table
+```
+
+2. 
+
+
+
+#### ~~~~~~~~~~
+
+```ruby
+<%= tinymce %>
+```
+
+
+
+html 태그로 저장된 content를 html 적용해서 보기
+
+```erb
+# show.html.erb
+
+<%= @post.content.html_safe %>
+```
+
+
+
+#### Editor에서 이미지 추가하기
+
+```
+gem 'tinymce-rails-imageupload', github: 'PerfectlyNormal/tinymce-rails-imageupload'
+```
+
+
+
+
+
+[](https://github.com/aws/aws-sdk-ruby)
+
+
+
+ 
+

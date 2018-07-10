@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'tinymce_assets/create'
+
   devise_for :users, controllers: { sessions: 'users/sessions' }
   root 'posts#index'
   resources :posts
@@ -6,6 +8,7 @@ Rails.application.routes.draw do
   delete '/posts/:post_id/like' => 'likes#destroy'
   post '/posts/:post_id/comments' => 'comments#create'
   delete '/comments/:comment_id' => 'comments#destroy', as: 'destroy_comment'
+  post '/tinymce_assets' => 'tinymce_assets#create'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
